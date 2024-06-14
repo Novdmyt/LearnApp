@@ -7,6 +7,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.android.learnapp.fragment.AddFragment;
 import com.android.learnapp.fragment.CreateFragment;
+import com.android.learnapp.fragment.DictionaryFragment;
+import com.android.learnapp.fragment.LearnWordsFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
@@ -23,9 +25,9 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 1:
                 return new AddFragment();
             case 2:
-              //  return new LearnWordsFragment();
+                return new LearnWordsFragment();
             case 3:
-              //  return new DictionaryFragment();
+               return new DictionaryFragment();
             default:
                 return new CreateFragment();
         }

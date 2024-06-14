@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
                     tab.setText("Додати");
                     break;
                 case 2:
-                   // tab.setText("Вчити слова");
+                    tab.setText("Вчити слова");
                     break;
                 case 3:
-                   // tab.setText("Словник");
+                    tab.setText("Словник");
                     break;
             }
         }).attach();
