@@ -52,9 +52,9 @@ public class AddFragment extends Fragment {
         editText.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_UP && event.getRawX() >= (editText.getRight() - drawable.getBounds().width())) {
                 if (isWordEditText) {
-                    language.showWordLanguageMenu(v, spinner);
+                    language.showWordLanguageMenu(v, spinner, editText);
                 } else {
-                    language.showTranslationLanguageMenu(v, spinner);
+                    language.showTranslationLanguageMenu(v, spinner, editText);
                 }
                 return true;
             }
