@@ -6,6 +6,44 @@
     android:layout_height="match_parent"
     tools:context="fragment.CreateFragment">
 
-    <!-- Ваш контент тут -->
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="410dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/dbNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:autofillHints=""
+            android:hint="@string/textCreate"
+            tools:ignore="TextContrastCheck,TextFields,VisualLintTextFieldSize" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="212dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <Button
+            android:id="@+id/createDbButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

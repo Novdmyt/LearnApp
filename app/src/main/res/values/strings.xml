@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LearnApp</string>
+    <string name="button">Створити</string>
+    <string name="textCreate">Введить назву</string>
 </resources>
