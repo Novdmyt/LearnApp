@@ -31,7 +31,7 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
     public void createTable(SQLiteDatabase db, String tableName) {
-        String createTable = "CREATE TABLE " + tableName + " (" +
+        String createTable = "CREATE TABLE [" + tableName + "] (" +
                 "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "Word TEXT, " +
                 "Translate TEXT)";
@@ -62,12 +62,12 @@ public class DataBase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("Word", word);
         values.put("Translate", translate);
-        db.insert(tableName, null, values);
+        db.insert("[" + tableName + "]", null, values);
     }
 
     public List<Word> getWordsFromTable(SQLiteDatabase db, String tableName) {
         List<Word> words = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT Word, Translate FROM " + tableName, null);
+        Cursor cursor = db.rawQuery("SELECT Word, Translate FROM [" + tableName + "]", null);
         if (cursor.moveToFirst()) {
             int wordColumnIndex = cursor.getColumnIndex("Word");
             int translateColumnIndex = cursor.getColumnIndex("Translate");

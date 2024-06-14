@@ -2,4 +2,14 @@
     <string name="app_name">LearnApp</string>
     <string name="button">Створити</string>
     <string name="textCreate">Введить назву</string>
+    <string name="enter_word">Введить слово</string>
+    <string name="enter_translation">Введить переклад</string>
+    <string name="add">Додати</string>
+    <string name="select_key">Оберить роскладку</string>
+    <string name="select_part">Оберить розділ</string>
+    <string name="english">English</string>
+    <string name="deutsch">Deutsch</string>
+    <string name="ukrainian">Українська</string>
+    <string name="russian">російська</string>
+
 </resources>

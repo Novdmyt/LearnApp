@@ -40,7 +40,8 @@ public class CreateFragment extends Fragment {
     }
 
     private boolean isValidTableName(String tableName) {
-        return tableName.matches("[a-zA-Zа-яА-ЯäöüÄÖÜß][a-zA-Zа-яА-ЯäöüÄÖÜß0-9]*");
+        // Дозволяємо алфавітні символи, цифри, пробіли, але не дозволяємо починати з пробілу
+        return tableName.matches("[a-zA-Zа-яА-ЯäöüÄÖÜß][a-zA-Zа-яА-ЯäöüÄÖÜß0-9 ]*");
     }
 
     private void createTable(String tableName) {
