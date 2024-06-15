@@ -12,13 +12,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.android.learnapp.R;
 import com.android.learnapp.database.DataBase;
+import com.android.learnapp.viewmodel.TableViewModel;
 
 public class CreateFragment extends Fragment {
     private EditText tableNameEditText;
     private Button createTableButton;
+    private TableViewModel tableViewModel;
 
     @Nullable
     @Override
@@ -27,6 +30,8 @@ public class CreateFragment extends Fragment {
 
         tableNameEditText = view.findViewById(R.id.dbNameEditText);
         createTableButton = view.findViewById(R.id.createDbButton);
+
+        tableViewModel = new ViewModelProvider(requireActivity()).get(TableViewModel.class);
 
         createTableButton.setOnClickListener(v -> {
             String tableName = tableNameEditText.getText().toString().trim();
@@ -40,7 +45,6 @@ public class CreateFragment extends Fragment {
     }
 
     private boolean isValidTableName(String tableName) {
-        // Дозволяємо алфавітні символи, цифри, пробіли, але не дозволяємо починати з пробілу
         return tableName.matches("[a-zA-Zа-яА-ЯäöüÄÖÜß][a-zA-Zа-яА-ЯäöüÄÖÜß0-9 ]*");
     }
 
@@ -52,7 +56,7 @@ public class CreateFragment extends Fragment {
                 dataBase.createTable(db, tableName);
                 Toast.makeText(getActivity(), "Table '" + tableName + "' created successfully.", Toast.LENGTH_LONG).show();
                 tableNameEditText.getText().clear(); // Clear the table name EditText
-                // refreshTableNamesInFragments(); // Update table names in other fragments
+                tableViewModel.setNewTableName(tableName); // Notify the ViewModel of the new table
             } else {
                 Toast.makeText(getActivity(), "Table '" + tableName + "' already exists.", Toast.LENGTH_SHORT).show();
             }

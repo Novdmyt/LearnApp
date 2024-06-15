@@ -17,10 +17,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.android.learnapp.R;
 import com.android.learnapp.database.DataBase;
 import com.android.learnapp.lang.Language;
+import com.android.learnapp.viewmodel.TableViewModel;
 
 import java.util.List;
 
@@ -32,6 +35,8 @@ public class AddFragment extends Fragment {
     private Spinner tableSpinner;
     private Language language;
     private DataBase dbHelper;
+    private TableViewModel tableViewModel;
+    private ArrayAdapter<String> adapter;
 
     @Nullable
     @Override
@@ -55,13 +60,22 @@ public class AddFragment extends Fragment {
 
         addButton.setOnClickListener(v -> addWordToDatabase());
 
+        tableViewModel = new ViewModelProvider(requireActivity()).get(TableViewModel.class);
+        tableViewModel.getNewTableName().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String tableName) {
+                adapter.add(tableName);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
         return view;
     }
 
     private void populateTableSpinner() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         List<String> tables = dbHelper.getTableNames(db);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, tables);
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, tables);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tableSpinner.setAdapter(adapter);
     }
