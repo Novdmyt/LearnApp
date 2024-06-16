@@ -2,11 +2,11 @@ package com.android.learnapp.database;
 
 public class Word {
     private String word;
-    private String translatoin;
+    private String translation;
 
-    public Word(String word, String translatoin) {
+    public Word(String word, String translation) {
         this.word = word;
-        this.translatoin = translatoin;
+        this.translation = translation;
     }
 
     public String getWord() {
@@ -14,6 +14,6 @@ public class Word {
     }
 
     public String getTranslation() {
-        return translatoin;
+        return translation;
     }
 }

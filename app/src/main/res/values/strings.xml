@@ -11,5 +11,17 @@
     <string name="deutsch">Deutsch</string>
     <string name="ukrainian">Українська</string>
     <string name="russian">російська</string>
+    <string name="translation">Переклад</string>
+    <string name="word">Слово</string>
+    <string name="speak">Вимова</string>
+    <string name="select_lang">Оберіть мову</string>
+    <string name="word_out_oder">Випадковий порядок</string>
+    <string name="check">Перевірити</string>
+    <string name="help">Допомога</string>
+    <string name="speaker_button_description">Звук</string>
+    <string name="find">Пошук слова або перекладу</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="three_dots">More options</string>
 
 </resources>
